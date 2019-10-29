@@ -3,7 +3,7 @@
 ### Clone Repo
 
 * `test -d $HOME/.dotfiles && mv -f $HOME/.dotfiles $HOME/.dotfiles.bak`
-* `git clone https://github.com/mtilson/dotfiles.git $HOME/.dotfiles`
+* `git clone https://github.com/mtilson/.dotfiles.git $HOME/.dotfiles`
 
 ### Link configuration files to ones from the Repo 
 

@@ -10,11 +10,19 @@ set hlsearch
 set incsearch
 set shiftwidth=4
 
-" Vimscript file settings ---------------------- {{{
+" Vimscript file folding settings -------------- {{{
 augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType vim setlocal foldlevelstart=0
+augroup END
+" }}}
+
+" Shell script file folding settings ----------- {{{
+augroup filetype_vim
+  autocmd!
+  autocmd FileType sh setlocal foldmethod=marker
+  autocmd FileType sh setlocal foldlevelstart=0
 augroup END
 " }}}
 
@@ -91,8 +99,9 @@ inoremap <silent> <esc>B <nop>
 inoremap <silent> <esc>C <nop>
 inoremap <silent> <esc>D <nop>
 
-" return to normal mode with 'jk' and disable the '<esc>' key
+" return to normal mode with 'jk' (or 'kj') and disable the '<esc>' key
 inoremap jk <esc>
+inoremap kj <esc>
 inoremap <esc> <nop>
 " }}}
 

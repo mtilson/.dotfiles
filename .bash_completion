@@ -1,0 +1,14 @@
+# 'aws' completion ---------------------------- {{{
+
+# requirements: 
+# install AWS CLI:
+# see https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+# > pip install virtualenv
+# > virtualenv ~/Library/PythonVenv/aws-env
+# > ~/Library/PythonVenv/aws-env/bin/pip3 install --upgrade awscli
+# > alias aws='~/Library/PythonVenv/aws-env/bin/aws'
+
+if [ -f ~/Library/PythonVenv/aws-env/bin/aws_completer ]; then
+  complete -C ~/Library/PythonVenv/aws-env/bin/aws_completer aws
+fi
+# }}}

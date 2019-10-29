@@ -9,8 +9,10 @@
 
 #### Vim
 
+##### .vimrc
 * `test -f $HOME/.vimrc && cp -f $HOME/.vimrc $HOME/.vimrc.bak`
 * `ln -sf $HOME/.dotfiles/.vimrc $HOME/`
 
+##### .vim/
 * `test -d $HOME/.vim && cp -rf $HOME/.vim $HOME/.vim.bak`
 * `ln -sf $HOME/.dotfiles/.vim $HOME/`

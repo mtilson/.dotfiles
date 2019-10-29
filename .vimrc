@@ -215,7 +215,7 @@ endfunction
 
 " it takes about 1.3 sec to load VIM
 " call EnablePowerline()
-" ... though we just use the following 'set' command durectly, which takes about 0.5 sec to load VIM
+" ... though we just use the following 'set' command directly, which takes about 0.5 sec to load VIM
 set rtp+=/usr/local/lib/python3.7/site-packages/powerline/bindings/vim
 " ! without including PowerLine plugin it takes about 0.2 sec to load VIM
 " }}}

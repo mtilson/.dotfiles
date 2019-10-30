@@ -10,7 +10,12 @@ set hlsearch
 set incsearch
 set shiftwidth=4
 
-set guifont=Go\ Mono\ for\ Powerline:h14
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Go\ Mono\ for\ Powerline:h14
+   endif
+endif
 
 " Vimscript file folding settings -------------- {{{
 augroup filetype_vim

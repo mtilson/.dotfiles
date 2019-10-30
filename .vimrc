@@ -19,7 +19,7 @@ augroup END
 " }}}
 
 " Shell script file folding settings ----------- {{{
-augroup filetype_vim
+augroup filetype_sh
   autocmd!
   autocmd FileType sh setlocal foldmethod=marker
   autocmd FileType sh setlocal foldlevelstart=0

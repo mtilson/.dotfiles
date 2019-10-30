@@ -1,10 +1,19 @@
-if [ -f ~/.bashrc ]; then . ~/.bashrc ; fi
-if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases ; fi
+if [ -r ~/.bashrc ]; then . ~/.bashrc ; fi
+if [ -r ~/.bash_aliases ]; then . ~/.bash_aliases ; fi
 if [ -r ~/.bash_completion ]; then . ~/.bash_completion ; fi
+
+# 'bash_completion' ---------------------------- {{{
+
+# requirements:
+# install 'bash_completion':
+# > brew install bash-completion
+
+if [ -r /usr/local/etc/bash_completion ]; then . /usr/local/etc/bash_completion ; fi
+# }}}
 
 # 'brew' completion ---------------------------- {{{
 
-# requirements: 
+# requirements:
 # install 'brew':
 # see https://brew.sh
 # > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -16,7 +25,7 @@ fi
 
 # Google Cloud SDK completion ------------------ {{{
 
-# requirements: 
+# requirements:
 # download and install Google Cloud SDK from versioned archives:
 # see https://cloud.google.com/sdk/docs/downloads-versioned-archives
 # > version="268.0.0" # change to the actual version
@@ -32,7 +41,7 @@ if [ -f ~/Library/google-cloud-sdk/completion.bash.inc ]; then . ~/Library/googl
 
 # 'z' for jump around ----------------------- {{{
 
-# requirements: 
+# requirements:
 # install 'z':
 # see https://github.com/rupa/z
 # > cd ~/Downloads

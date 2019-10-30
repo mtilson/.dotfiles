@@ -3,6 +3,7 @@
 # requirements: 
 # install AWS CLI:
 # see https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+# see https://docs.aws.amazon.com/cli/latest/userguide/install-virtualenv.html
 # > pip install virtualenv
 # > virtualenv ~/Library/PythonVenv/aws-env
 # > ~/Library/PythonVenv/aws-env/bin/pip3 install --upgrade awscli

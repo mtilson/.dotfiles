@@ -12,7 +12,7 @@
 ##### .config/powerline
 * `test -d $HOME/.config || mkdir -p $HOME/.config`
 * `test -d $HOME/.config/powerline && cp -rf $HOME/.config/powerline $HOME/.config.powerline.bak`
-* `ln -sf $HOME/.config/powerline $HOME/.config/`
+* `ln -sf $HOME/.dotfiles/.config/powerline $HOME/.config/`
 
 ##### .vimrc
 * `test -f $HOME/.vimrc && cp -f $HOME/.vimrc $HOME/.vimrc.bak`

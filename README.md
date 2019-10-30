@@ -7,7 +7,12 @@
 
 ### Link configuration files to ones from the Repo 
 
-#### Vim
+#### Powerline for Vim, Bash, Tmux, etc
+
+##### .config/powerline
+* `test -d $HOME/.config || mkdir -p $HOME/.config`
+* `test -d $HOME/.config/powerline && cp -rf $HOME/.config/powerline $HOME/.config.powerline.bak`
+* `ln -sf $HOME/.config/powerline $HOME/.config/`
 
 ##### .vimrc
 * `test -f $HOME/.vimrc && cp -f $HOME/.vimrc $HOME/.vimrc.bak`

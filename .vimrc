@@ -10,6 +10,8 @@ set hlsearch
 set incsearch
 set shiftwidth=4
 
+set guifont=Go\ Mono\ for\ Powerline:h14
+
 " Vimscript file folding settings -------------- {{{
 augroup filetype_vim
   autocmd!

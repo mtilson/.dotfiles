@@ -3,21 +3,27 @@ set nu
 let mapleader = "-"
 let maplocalleader = "-"
 
-filetype plugin indent on
-syntax on
+let s:plug_path = '~/.vim/autoload/plug.vim'
+let s:plug_dir = '~/.vim/plugged'
+
+if empty(glob(s:plug_path))
+  silent execute '!curl -fLo '.s:plug_path.' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin(s:plug_dir)
+  Plug 'junegunn/vim-plug'
+  Plug 'tpope/vim-fugitive'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
+call plug#end()
 
 set hlsearch
 set incsearch
 set shiftwidth=4
 
-if has("gui_running")
-   let s:uname = system("uname")
-   if s:uname == "Darwin\n"
-      set guifont=Go\ Mono\ for\ Powerline:h14
-   endif
-endif
-
-" Vimscript file folding settings -------------- {{{
+" Folding (Vimscript) -------------------------- {{{
 augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
@@ -25,7 +31,7 @@ augroup filetype_vim
 augroup END
 " }}}
 
-" Shell script file folding settings ----------- {{{
+" Folding (Shell script) ----------------------- {{{
 augroup filetype_sh
   autocmd!
   autocmd FileType sh setlocal foldmethod=marker
@@ -33,12 +39,12 @@ augroup filetype_sh
 augroup END
 " }}}
 
-" Mark/unmark trailing whitespaces ------------- {{{
+" Trailing whitespaces ------------------------- {{{
 nnoremap <leader>w :execute "normal! :match Error /\\v\\s+$/\r"<cr>
 nnoremap <leader>W :execute "normal! :match Normal /\\v\\s+$/\r"<cr>
 " }}}
 
-" Comment lines in different languages --------- {{{
+" Comment single line -------------------------- {{{
 augroup comment_line
   autocmd!
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
@@ -47,12 +53,12 @@ augroup comment_line
 augroup END
 " }}}
 
-" Quickly edit|re-source .vimrc ---------------- {{{
+" Edit/Source ~/.vimrc ------------------------- {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " }}}
 
-" Statusline settings -------------------------- {{{
+" Statusline ----------------------------------- {{{
 set laststatus=2
 set statusline=%F         " Path to the file
 set statusline+=%=        " Switch to the right side
@@ -71,7 +77,7 @@ iabbrev @W https://tilson.biz
 iabbrev @S --<cr>M. Tilson<cr>m@tilson.biz<cr>--<cr>
 " }}}
 
-" Misc mapping --------------------------------- {{{
+" Mapping (misc) ------------------------------- {{{
 
 " source file itself
 nnoremap <leader>s :source %<cr>
@@ -112,7 +118,7 @@ inoremap kj <esc>
 inoremap <esc> <nop>
 " }}}
 
-" Misc toggling -------------------------------- {{{
+" Toggling (misc) ------------------------------ {{{
 nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
 let g:quickfix_is_open = 0
 function! s:QuickfixToggle()
@@ -186,7 +192,7 @@ endfunction
 " endfunction
 " }}}
 
-" Enable PowerLine in VIM ---------------------- {{{
+" Enable PowerLine for VIM --------------------- {{{
 "" Use the following steps:
 ""Step 1 - it is set by default
 " set encoding=utf-8
@@ -229,9 +235,18 @@ function! EnablePowerline()
     exec 'set rtp+=' . l:pl_vim_binding_path
 endfunction
 
-" it takes about 1.3 sec to load VIM
-" call EnablePowerline()
-" ... though we just use the following 'set' command directly, which takes about 0.5 sec to load VIM
+" call EnablePowerline() " it takes about 1.3 sec to load VIM
+" due to the above we just use 'set' command directly, which takes about 0.5 sec to load VIM
 set rtp+=/usr/local/lib/python3.7/site-packages/powerline/bindings/vim
-" ! without including PowerLine plugin it takes about 0.2 sec to load VIM
+" and without including PowerLine plugin it takes about 0.2 sec to load VIM
+" }}}
+
+" Enable Powerline for GUI VIM (e.g. MacVim) --- {{{
+" 'Go Mono for Powerline' font to be installed (e.g. with 'Font Book.app')
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Go\ Mono\ for\ Powerline:h14
+   endif
+endif
 " }}}

@@ -2,40 +2,40 @@
 
 ### Clone Repo
 
-* `test -d $HOME/.dotfiles && mv -f $HOME/.dotfiles $HOME/.dotfiles.bak`
-* `git clone https://github.com/mtilson/.dotfiles.git $HOME/.dotfiles`
+* `test -d ~/.dotfiles && mv -f ~/.dotfiles ~/.dotfiles.bak`
+* `git clone https://github.com/mtilson/.dotfiles.git ~/.dotfiles`
 
 ### Link configuration files to ones from the Repo 
 
 #### Powerline for Vim, Bash, Tmux, etc
 
 ##### .config/powerline
-* `test -d $HOME/.config || mkdir -p $HOME/.config`
-* `test -d $HOME/.config/powerline && cp -rf $HOME/.config/powerline $HOME/.config.powerline.bak`
-* `ln -sf $HOME/.dotfiles/.config/powerline $HOME/.config/`
+* `test -d ~/.config || mkdir -p ~/.config`
+* `test -d ~/.config/powerline && cp -rf ~/.config/powerline ~/.config.powerline.bak`
+* `ln -sf ../.dotfiles/.config/powerline ~/.config/`
 
 ##### .vimrc
-* `test -f $HOME/.vimrc && cp -f $HOME/.vimrc $HOME/.vimrc.bak`
-* `ln -sf $HOME/.dotfiles/.vimrc $HOME/`
+* `test -f ~/.vimrc && cp -f ~/.vimrc ~/.vimrc.bak`
+* `ln -sf .dotfiles/.vimrc ~/`
 
 ##### .vim/
-* `test -d $HOME/.vim && cp -rf $HOME/.vim $HOME/.vim.bak`
-* `ln -sf $HOME/.dotfiles/.vim $HOME/`
+* `test -d ~/.vim && cp -rf ~/.vim ~/.vim.bak`
+* `ln -sf .dotfiles/.vim ~/`
 
 #### Bash
 
 ##### .bashrc
-* `test -f $HOME/.bashrc && cp -f $HOME/.bashrc $HOME/.bashrc.bak`
-* `ln -sf $HOME/.dotfiles/.bashrc $HOME/`
+* `test -f ~/.bashrc && cp -f ~/.bashrc ~/.bashrc.bak`
+* `ln -sf .dotfiles/.bashrc ~/`
 
 ##### .bash_profile
-* `test -f $HOME/.bash_profile && cp -f $HOME/.bash_profile $HOME/.bash_profile.bak`
-* `ln -sf $HOME/.dotfiles/.bash_profile $HOME/`
+* `test -f ~/.bash_profile && cp -f ~/.bash_profile ~/.bash_profile.bak`
+* `ln -sf .dotfiles/.bash_profile ~/`
 
 ##### .bash_aliases
-* `test -f $HOME/.bash_aliases && cp -f $HOME/.bash_aliases $HOME/.bash_aliases.bak`
-* `ln -sf $HOME/.dotfiles/.bash_aliases $HOME/`
+* `test -f ~/.bash_aliases && cp -f ~/.bash_aliases ~/.bash_aliases.bak`
+* `ln -sf .dotfiles/.bash_aliases ~/`
 
 ##### .bash_completion
-* `test -f $HOME/.bash_completion && cp -f $HOME/.bash_completion $HOME/.bash_completion.bak`
-* `ln -sf $HOME/.dotfiles/.bash_completion $HOME/`
+* `test -f ~/.bash_completion && cp -f ~/.bash_completion ~/.bash_completion.bak`
+* `ln -sf .dotfiles/.bash_completion ~/`

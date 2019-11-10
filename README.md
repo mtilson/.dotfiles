@@ -39,3 +39,13 @@
 ##### .bash_completion
 * `test -f ~/.bash_completion && cp -f ~/.bash_completion ~/.bash_completion.bak`
 * `ln -sf .dotfiles/.bash_completion ~/`
+
+#### Tmux
+
+##### .tmux.conf
+* `test -f ~/.tmux.conf && cp -f ~/.tmux.conf ~/.tmux.conf.bak`
+* `ln -sf .dotfiles/.tmux.conf ~/`
+
+##### .tmux.Darwin.conf
+* `test -f ~/.tmux.Darwin.conf && cp -f ~/.tmux.Darwin.conf ~/.tmux.Darwin.conf.bak`
+* `ln -sf .dotfiles/.tmux.Darwin.conf ~/`

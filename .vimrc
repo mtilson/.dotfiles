@@ -13,7 +13,8 @@ endif
 
 call plug#begin(s:plug_dir)
   Plug 'junegunn/vim-plug'
-  Plug 'tpope/vim-fugitive'
+  Plug 'christoomey/vim-tmux-navigator'
+" Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'

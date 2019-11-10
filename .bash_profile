@@ -1,6 +1,13 @@
+# if [[ "$TERM" != "screen-256color" ]] ; then
+#   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+# fi
+
 if [ -r ~/.bashrc ]; then . ~/.bashrc ; fi
 if [ -r ~/.bash_aliases ]; then . ~/.bash_aliases ; fi
 if [ -r ~/.bash_completion ]; then . ~/.bash_completion ; fi
+
+export EDITOR=vim
+export VISUAL="$EDITOR"
 
 # 'bash_completion' ---------------------------- {{{
 

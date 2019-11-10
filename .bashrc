@@ -16,6 +16,14 @@ if is_app_installed go ; then
 fi
 # }}}
 
+# PATH for user's python3 bin ------------------ {{{
+
+# Update PATH for user's python3 bin
+if [ -d ~/Library/Python/3.7/bin ]; then
+  export PATH=$PATH:~/Library/Python/3.7/bin
+fi
+# }}}
+
 # PATH for Google Cloud SDK -------------------- {{{
 
 # requirements: see ~/.bash_profile
@@ -25,3 +33,4 @@ if [ -f ~/Library/google-cloud-sdk/path.bash.inc ]; then
   . ~/Library/google-cloud-sdk/path.bash.inc
 fi
 # }}}
+

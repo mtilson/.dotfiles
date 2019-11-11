@@ -23,6 +23,8 @@ set number
 set hlsearch
 set incsearch
 set shiftwidth=4
+set splitbelow
+set splitright
 
 " Folding (Vimscript) -------------------------- {{{
 augroup filetype_vim
@@ -114,6 +116,12 @@ inoremap <silent> <esc>A <nop>
 inoremap <silent> <esc>B <nop>
 inoremap <silent> <esc>C <nop>
 inoremap <silent> <esc>D <nop>
+
+" instead of ctrl-w then j, it’s just ctrl-j
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 " return to normal mode with 'jk' (or 'kj') and disable the '<esc>' key
 inoremap jk <esc>

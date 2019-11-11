@@ -22,6 +22,12 @@
 * `test -d ~/.vim && cp -rf ~/.vim ~/.vim.bak`
 * `ln -sf .dotfiles/.vim ~/`
 
+#### Zsh
+
+##### .zshrc
+* `test -f ~/.zshrc && cp -f ~/.zshrc ~/.zshrc.bak`
+* `ln -sf .dotfiles/.zshrc ~/`
+
 #### Bash
 
 ##### .bashrc

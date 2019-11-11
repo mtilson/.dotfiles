@@ -1,0 +1,6 @@
+TMPDIR=$(mktemp -d)
+cd $TMPDIR
+curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > install_oh_my_zsh.sh
+ZSH=~/.zsh sh install_oh_my_zsh.sh
+cd $HOME
+rm -fr "$TMPDIR"

@@ -1,0 +1,1 @@
+# see https://www.iterm2.com/documentation-shell-integration.html

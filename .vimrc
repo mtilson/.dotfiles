@@ -1,5 +1,3 @@
-set nu
-
 let mapleader = "-"
 let maplocalleader = "-"
 
@@ -14,12 +12,14 @@ endif
 call plug#begin(s:plug_dir)
   Plug 'junegunn/vim-plug'
   Plug 'christoomey/vim-tmux-navigator'
+" Plug 'tpope/vim-obsession'
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 call plug#end()
 
+set number
 set hlsearch
 set incsearch
 set shiftwidth=4
@@ -59,16 +59,18 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " }}}
 
-" Statusline ----------------------------------- {{{
-set laststatus=2
-set statusline=%F         " Path to the file
-set statusline+=%=        " Switch to the right side
-set statusline+=FileType: " Label
-set statusline+=%y        " Filetype of the file
-set statusline+=\ -\      " Separator
-set statusline+=%4l       " Current line
-set statusline+=/         " Separator
-set statusline+=%-4L      " Total lines
+" Statusline, Tabline, Showmode ---------------- {{{
+set laststatus=2  " always display the statusline in all windows
+set showtabline=2 " always display the tabline, even for only one tab
+set noshowmode    " hide the default mode text (e.g. -- INSERT -- )
+" set statusline=%F         " Path to the file
+" set statusline+=%=        " Switch to the right side
+" set statusline+=FileType: " Label
+" set statusline+=%y        " Filetype of the file
+" set statusline+=\ -\      " Separator
+" set statusline+=%4l       " Current line
+" set statusline+=/         " Separator
+" set statusline+=%-4L      " Total lines
 " }}}
 
 " Abbreviations -------------------------------- {{{

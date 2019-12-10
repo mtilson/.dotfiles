@@ -3,3 +3,4 @@
 .vim/plugged/
 .*.swp
 .zsh/custom/themes/*
+tmp*/

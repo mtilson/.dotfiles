@@ -9,16 +9,17 @@ if [ -r ~/.bash_completion ]; then . ~/.bash_completion ; fi
 export EDITOR=vim
 export VISUAL="$EDITOR"
 
-# 'bash_completion' ---------------------------- {{{
+# completion: 'bash' itself -------------------- {{{
 
 # requirements:
 # install 'bash_completion':
 # > brew install bash-completion
 
-if [ -r /usr/local/etc/bash_completion ]; then . /usr/local/etc/bash_completion ; fi
+if [ -r /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
+fi
 # }}}
-
-# 'brew' completion ---------------------------- {{{
+# completion: 'brew' --------------------------- {{{
 
 # requirements:
 # install 'brew':
@@ -26,11 +27,12 @@ if [ -r /usr/local/etc/bash_completion ]; then . /usr/local/etc/bash_completion 
 # > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 if is_app_installed brew ; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then . $(brew --prefix)/etc/bash_completion ; fi
+  if [ -f $(brew --prefix)/etc/bash_completion ] ; then
+      . $(brew --prefix)/etc/bash_completion
+  fi
 fi
 # }}}
-
-# Google Cloud SDK completion ------------------ {{{
+# completion: 'gcloud' ------------------------- {{{
 
 # requirements:
 # download and install Google Cloud SDK from versioned archives:
@@ -43,24 +45,34 @@ fi
 # > tar -xzvf ${sdkfilename} -C ~/Library
 
 # Enable 'gcloud' completion
-if [ -f ~/Library/google-cloud-sdk/completion.bash.inc ]; then . ~/Library/google-cloud-sdk/completion.bash.inc ; fi
+if [ -f ~/Library/google-cloud-sdk/completion.bash.inc ]; then
+    . ~/Library/google-cloud-sdk/completion.bash.inc
+fi
 # }}}
 
 # 'z' for jump around ----------------------- {{{
 
 # requirements:
-# install 'z':
-# see https://github.com/rupa/z
-# > cd ~/Downloads
-# > git clone git@github.com:rupa/z.git
-# > cd z
-# > sudo cp z/z.sh /usr/local/bin/
-# > sudo cp z/z.1 /usr/local/share/man/man1/
+# install 'z' manually or with `brew`
 
-if [ -f /usr/local/bin/z.sh ]; then . /usr/local/bin/z.sh ; fi
+## install 'z' manually
+## see https://github.com/rupa/z
+## > cd ~/Downloads
+## > git clone git@github.com:rupa/z.git
+## > cd z
+## > sudo cp z/z.sh /usr/local/bin/
+## > sudo cp z/z.1 /usr/local/share/man/man1/
+
+##if [ -f /usr/local/bin/z.sh ]; then
+##    . /usr/local/bin/z.sh
+##fi
+
+# install 'z' with `brew`
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+    . /usr/local/etc/profile.d/z.sh
+fi
 # }}}
-
-# Powerline 'bash' binding --------------------- {{{
+# 'powerline' bash binding --------------------- {{{
 
 # requirements:
 # install 'powerline-status' python3 lib:

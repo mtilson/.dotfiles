@@ -1,0 +1,13 @@
+{
+
+	"languageserver": {
+		"golang": {
+		"command": "gopls",
+		"rootPatterns": [".git", "go.mod", ".vim/"],
+		"filetypes": ["go"],
+			"initializationOptions": {
+				"staticcheck": true
+			}
+		}
+	}
+}

@@ -1,4 +1,8 @@
-# 'aws' completion ---------------------------- {{{
+is_app_installed() {
+  type "$1" &>/dev/null
+}
+
+# completion: 'aws' ---------------------------- {{{
 
 # requirements: 
 # install AWS CLI:
@@ -11,5 +15,15 @@
 
 if [ -f ~/Library/PythonVenv/aws-env/bin/aws_completer ]; then
   complete -C ~/Library/PythonVenv/aws-env/bin/aws_completer aws
+fi
+# }}}
+# completion: 'vault' -------------------------- {{{
+
+# requirements:
+# install 'vault':
+# > brew install vault
+
+if is_app_installed vault ; then
+    complete -C /usr/local/bin/vault vault
 fi
 # }}}

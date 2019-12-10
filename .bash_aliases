@@ -1,4 +1,5 @@
 alias ll='ls -FGlAhp'
+alias kk='ls -FGlAhp'
 alias aws='~/Library/PythonVenv/aws-env/bin/aws'
 alias vgup='vagrant up'
 alias vghl='vagrant halt'

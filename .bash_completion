@@ -5,22 +5,38 @@ is_app_installed() {
 # completion: 'aws' ---------------------------- {{{
 
 # requirements: 
-# install AWS CLI:
-# see https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
-# see https://docs.aws.amazon.com/cli/latest/userguide/install-virtualenv.html
+# install AWS CLI manually:
 # > pip install virtualenv
 # > virtualenv ~/Library/PythonVenv/aws-env
 # > ~/Library/PythonVenv/aws-env/bin/pip3 install --upgrade awscli
 # > alias aws='~/Library/PythonVenv/aws-env/bin/aws'
+# see https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+# see https://docs.aws.amazon.com/cli/latest/userguide/install-virtualenv.html
 
 if [ -f ~/Library/PythonVenv/aws-env/bin/aws_completer ]; then
   complete -C ~/Library/PythonVenv/aws-env/bin/aws_completer aws
 fi
 # }}}
+# completion: 'gcloud' ------------------------- {{{
+
+# requirements:
+# install Google Cloud SDK manually:
+# > version="268.0.0" # change to the actual version
+# > sdkfilename="google-cloud-sdk-${version}-$(uname -s | tr [A-Z] [a-z])-$(uname -m).tar.gz"
+# > sdkdownloadprefix="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/"
+# > cd ~/Downloads
+# > curl -LO ${sdkdownloadprefix}${sdkfilename}
+# > tar -xzvf ${sdkfilename} -C ~/Library
+# see https://cloud.google.com/sdk/docs/downloads-versioned-archives
+
+if [ -f ~/Library/google-cloud-sdk/completion.bash.inc ]; then
+    . ~/Library/google-cloud-sdk/completion.bash.inc
+fi
+# }}}
 # completion: 'vault' -------------------------- {{{
 
 # requirements:
-# install 'vault':
+# install 'vault' via 'brew':
 # > brew install vault
 
 if is_app_installed vault ; then

@@ -2,74 +2,24 @@
 #   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 # fi
 
+# source ~/.bashrc ----------------------------- {{{
 if [ -r ~/.bashrc ]; then . ~/.bashrc ; fi
-if [ -r ~/.bash_aliases ]; then . ~/.bash_aliases ; fi
-if [ -r ~/.bash_completion ]; then . ~/.bash_completion ; fi
-
-export EDITOR=vim
-export VISUAL="$EDITOR"
-
-# completion: 'bash' itself -------------------- {{{
+# }}}
+# completion: 'bash' --------------------------- {{{
 
 # requirements:
-# install 'bash_completion':
+# install 'brew' manually:
+# > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# see https://brew.sh
+
+# install 'bash_completion' via 'brew':
 # > brew install bash-completion
 
-if [ -r /usr/local/etc/bash_completion ]; then
-    . /usr/local/etc/bash_completion
-fi
-# }}}
-# completion: 'brew' --------------------------- {{{
-
-# requirements:
-# install 'brew':
-# see https://brew.sh
-# > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
+# it also sources '~/.bash_completion'
 if is_app_installed brew ; then
   if [ -f $(brew --prefix)/etc/bash_completion ] ; then
       . $(brew --prefix)/etc/bash_completion
   fi
-fi
-# }}}
-# completion: 'gcloud' ------------------------- {{{
-
-# requirements:
-# download and install Google Cloud SDK from versioned archives:
-# see https://cloud.google.com/sdk/docs/downloads-versioned-archives
-# > version="268.0.0" # change to the actual version
-# > sdkfilename="google-cloud-sdk-${version}-$(uname -s | tr [A-Z] [a-z])-$(uname -m).tar.gz"
-# > sdkdownloadprefix="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/"
-# > cd ~/Downloads
-# > curl -LO ${sdkdownloadprefix}${sdkfilename}
-# > tar -xzvf ${sdkfilename} -C ~/Library
-
-# Enable 'gcloud' completion
-if [ -f ~/Library/google-cloud-sdk/completion.bash.inc ]; then
-    . ~/Library/google-cloud-sdk/completion.bash.inc
-fi
-# }}}
-
-# 'z' for jump around ----------------------- {{{
-
-# requirements:
-# install 'z' manually or with `brew`
-
-## install 'z' manually
-## see https://github.com/rupa/z
-## > cd ~/Downloads
-## > git clone git@github.com:rupa/z.git
-## > cd z
-## > sudo cp z/z.sh /usr/local/bin/
-## > sudo cp z/z.1 /usr/local/share/man/man1/
-
-##if [ -f /usr/local/bin/z.sh ]; then
-##    . /usr/local/bin/z.sh
-##fi
-
-# install 'z' with `brew`
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-    . /usr/local/etc/profile.d/z.sh
 fi
 # }}}
 # 'powerline' bash binding --------------------- {{{
@@ -92,6 +42,31 @@ if is_app_installed pip3 ; then
 else
   printf "WARNING: powerline settings: command 'pip3' is not found"
 fi
+# }}}
+# 'cover ()' golang test coverage and report --- {{{
+cover () {
+    local t=$(mktemp -t cover)
+    go test $COVERFLAGS -coverprofile=$t $@ \
+        && go tool cover -func=$t \
+        && unlink $t
+}
+# }}}
+# 'z' for jump around -------------------------- {{{
+
+# requirements:
+# install 'z' via 'brew'
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+    . /usr/local/etc/profile.d/z.sh
+fi
+# }}}
+# flow control: <C-s>/<C-q> -------------------- {{{
+
+# <C-s> pausing output from terminal
+# <C-q> restoring it
+stty stop ''
+stty start ''
+stty -ixon
+stty -ixoff
 # }}}
 
 # see also: https://gist.githubusercontent.com/natelandau/10654137/raw/32eb964560873a8c23d7745de2736bef437524ba/.bash_profile

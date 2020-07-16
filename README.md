@@ -34,10 +34,6 @@
 * `test -f ~/.bashrc && cp -f ~/.bashrc ~/.bashrc.bak`
 * `ln -sf .dotfiles/.bashrc ~/`
 
-##### .bash_profile
-* `test -f ~/.bash_profile && cp -f ~/.bash_profile ~/.bash_profile.bak`
-* `ln -sf .dotfiles/.bash_profile ~/`
-
 ##### .bash_aliases
 * `test -f ~/.bash_aliases && cp -f ~/.bash_aliases ~/.bash_aliases.bak`
 * `ln -sf .dotfiles/.bash_aliases ~/`
@@ -45,6 +41,20 @@
 ##### .bash_completion
 * `test -f ~/.bash_completion && cp -f ~/.bash_completion ~/.bash_completion.bak`
 * `ln -sf .dotfiles/.bash_completion ~/`
+
+##### .bash_pathes
+* `test -f ~/.bash_pathes && cp -f ~/.bash_pathes ~/.bash_pathes.bak`
+* `ln -sf .dotfiles/.bash_pathes ~/`
+
+##### .bash_profile
+* `test -f ~/.bash_profile && cp -f ~/.bash_profile ~/.bash_profile.bak`
+* `ln -sf .dotfiles/.bash_profile ~/`
+
+#### Shell's common groung
+
+##### .shell.commons
+* `test -f ~/.shell.commons && cp -f ~/.shell.commons ~/.shell.commons.bak`
+* `ln -sf .dotfiles/.shell.commons ~/`
 
 #### Tmux
 

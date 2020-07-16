@@ -1,0 +1,76 @@
+is_app_installed() {
+  type "$1" &>/dev/null
+}
+
+# Aliases -------------------------------------- {{{
+alias cat='bat'
+alias catp='cat --paging=never -p'
+
+alias ll='ls -FGlAhp'
+alias kk='ll'
+
+alias aws='~/Library/PythonVenv/aws-env/bin/aws'
+
+alias vgup='vagrant up'
+alias vghl='vagrant halt'
+alias vgsh='vagrant ssh'
+alias vgsc='vagrant ssh-config'
+alias vgst='vagrant status'
+alias vgsg='vagrant global-status'
+alias vgbu='vagrant box update'
+alias vgde='vagrant destroy'
+
+alias cz='cd $(z | tail -1 | sed -e "s/^[^ ]* *//")'
+
+alias dils='docker image ls'
+alias dcls='docker container ls'
+
+alias dfcsr='f() {
+  if [ -z "$1" ] ; then echo "arg is empty"; return ; fi
+  if [ ! -f "./$1.key" ] ; then echo "no ./$1.key file"; return ; fi
+  if [ ! -f "./$1.csr" ] ; then echo "no ./$1.csr file"; return ; fi
+  diff <(openssl rsa -in $1.key -noout -modulus) <(openssl req -in $1.csr -noout -modulus)
+  };
+  f'
+alias dfcrt='f() {
+  if [ -z "$1" ] ; then echo "arg is empty"; return ; fi
+  if [ ! -f "./$1.key" ] ; then echo "no ./$1.key file"; return ; fi
+  if [ ! -f "./$1.crt" ] ; then echo "no ./$1.crt file"; return ; fi
+  diff <(openssl rsa -in $1.key -noout -modulus) <(openssl x509 -in $1.crt -noout -modulus)
+  };
+  f'
+# }}}
+# Environment variables ------------------------ {{{
+
+# editors
+export EDITOR=vim
+export VISUAL="$EDITOR"
+
+# set local vars explicitly to fix issues with remote (SSH) sessions
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+# }}}
+# PATH's for GoLang ---------------------------- {{{
+
+# requirements:
+# install 'golang' with 'brew':
+# > brew install go
+
+if is_app_installed go ; then
+  # secure GOPATH and GOBIN
+  export GOPATH="$(go env GOPATH)"
+  export GOBIN="${GOPATH}/bin"
+
+  if [ -d "$GOBIN" ]; then
+    export PATH=$PATH:$GOBIN
+  fi
+fi
+# }}}
+# PATH for user's python3 bin ------------------ {{{
+
+# Update PATH for user's python3 bin
+if [ -d ~/Library/Python/3.7/bin ]; then
+  export PATH=$PATH:~/Library/Python/3.7/bin
+fi
+# }}}

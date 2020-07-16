@@ -1,0 +1,18 @@
+# PATH for Google Cloud SDK -------------------- {{{
+
+# requirements:
+# install Google Cloud SDK manually:
+# > version="268.0.0" # change to the actual version
+# > sdkfilename="google-cloud-sdk-${version}-$(uname -s | tr [A-Z] [a-z])-$(uname -m).tar.gz"
+# > sdkdownloadprefix="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/"
+# > cd ~/Downloads
+# > curl -LO ${sdkdownloadprefix}${sdkfilename}
+# > tar -xzvf ${sdkfilename} -C ~/Library
+# see https://cloud.google.com/sdk/docs/downloads-versioned-archives
+# see './.bash_completion'
+
+if [ -f ~/Library/google-cloud-sdk/path.bash.inc ]; then
+  . ~/Library/google-cloud-sdk/path.bash.inc
+fi
+# }}}
+

@@ -6,6 +6,8 @@ set encoding=utf-8              " Set default encoding to UTF-8
 scriptencoding utf-8            " Set encoding used in scripts to UTF-8
 
 call plug#begin()
+Plug 'hashivim/vim-terraform'
+Plug 'vim/killersheep'
 Plug 'fatih/vim-go'
 Plug 'fatih/molokai'
 Plug 'NLKNguyen/papercolor-theme'
@@ -13,7 +15,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 				" 'gS' split a one-liner into multiple lines
 				" 'gJ' (cursor on 1st line of a block) join
 				" block into a single-line statement
-Plug 'SirVer/ultisnips'
+"lug 'SirVer/ultisnips'
 				" solution for snippets
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -167,6 +169,10 @@ augroup END
 """"""""""""""""""""""
 "      Mappings      "
 """"""""""""""""""""""
+" Zoom-in and zoom-out the splits
+noremap Zz <c-w>_\|<c-w>\|
+noremap Zo <c-w>=
+
 " Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
 " quickfix window with <leader>a
 map <C-n> :cnext<CR>
@@ -191,6 +197,9 @@ autocmd BufEnter * silent! lcd %:p:h
 """""""""""""""""""""
 "      Plugins      "
 """""""""""""""""""""
+
+" vim-terraform
+let g:terraform_fmt_on_save=1
 
 " vim-go
 let g:go_test_timeout = '10s' "default
@@ -229,7 +238,7 @@ imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 augroup deftabs "tf, json, ...
   autocmd!
-  autocmd BufNewFile,BufRead *.tf setlocal noexpandtab tabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.tf setlocal expandtab tabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.md setlocal noexpandtab tabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.json setlocal noexpandtab tabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.yaml setlocal expandtab tabstop=2 shiftwidth=2
@@ -267,10 +276,10 @@ augroup go
   autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
   " :GoTest
-  autocmd FileType go nmap <leader>t  <Plug>(go-test)
+  autocmd FileType go nmap <leader>t <Plug>(go-test)
 
   " :GoRun
-  autocmd FileType go nmap <leader>r  <Plug>(go-run)
+  autocmd FileType go nmap <leader>r <Plug>(go-run)
 
   " :GoDoc
   autocmd FileType go nmap <Leader>d <Plug>(go-doc)

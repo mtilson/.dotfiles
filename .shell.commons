@@ -5,11 +5,10 @@ is_app_installed() {
 # Aliases -------------------------------------- {{{
 alias cat='bat'
 alias catp='cat --paging=never -p'
+alias qm='qemu-system-x86_64'
 
 alias ll='ls -FGlAhp'
 alias kk='ll'
-
-alias aws='~/Library/PythonVenv/aws-env/bin/aws'
 
 alias vgup='vagrant up'
 alias vghl='vagrant halt'
